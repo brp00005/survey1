@@ -48,6 +48,6 @@ def hypercake():
 
     return total
 
-# Test the hypercake function
+# do the hypercake function
 result = hypercake()
 print(f"The result is: {result}")
