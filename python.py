@@ -1,27 +1,53 @@
-#making the array structure
-cache = []
+def hypercake():
+    def combinations(n, r):
+        # Making the array structure
+        cache = []
 
-def combinations(n,r):
-    nFactorial = int(factorial(n)); 
-        #memoized factorial
-        def factorial(n):
-            # if it exists in there
-            if len(cache) > n and cache[n] is not None:
-                return cache[n]
-            
-            # if not, calculate and store 
-            if n == 0 or n == 1:
+        # Memoized factorial, had to change to x instead of n
+        def factorial(x):
+            # Indicate that not local to scope
+            nonlocal cache
+
+            # If it exists in there, use memoization
+            if len(cache) > x and cache[x] is not None:
+                return cache[x]
+
+            # If not, calculate and store
+            if x == 0 or x == 1:
                 result = 1
             else:
-                result = n * factorial(n-1)
-            
+                result = x * factorial(x-1)
+
             # Store the result in the cache using append
-            while len(cache) <= n:
+            while len(cache) <= x:
                 cache.append(None)
-            cache[n] = result
-            
+            cache[x] = result
+
             return result
 
-# Test the factorial function
-result = factorial(5)
-print(f"The factorial of 5 is: {result}")
+        # Calculation for combination
+        nFactorial = int(factorial(n))
+        rFactorial = int(factorial(r))
+        nrFactorial = int(factorial(n-r))
+
+        return int(nFactorial / (rFactorial * nrFactorial))
+        
+    # Get user input, cast cuts and dimensions to avoid complaints
+    cuts = int(input("Enter cut number: "))
+    dimensions = int(input("Enter dimensions: "))  # Convert the input to an integer
+    
+    # If dimensions is 0
+    if dimensions == 0:
+        return 1
+    
+    total = 0
+    
+    # Iterate through nCd
+    for number in range(dimensions + 1):
+        total += combinations(cuts, number)
+
+    return total
+
+# Test the hypercake function
+result = hypercake()
+print(f"The result is: {result}")
