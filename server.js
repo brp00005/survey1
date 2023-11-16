@@ -1,6 +1,11 @@
+//@author Robert Coleman
+// I understand academic integrity
+// This JavaScript file calculates the hypercake of user input dimensions
+
+// readline so Node.js can compile without a web browser environment
 const readline = require('readline');
 
-// Define a global array to serve as the cache
+// declaring empty cache
 let cache = new Array(1000).fill(-1);
 
 function hypercake(n, k) {
@@ -11,6 +16,7 @@ function hypercake(n, k) {
                             return cache[x];
                         }
 
+                        // scoped variable for result of factorial
                         let result;
 
                         if (x == 0 || x == 1) {
@@ -20,7 +26,7 @@ function hypercake(n, k) {
                             result = x * factorial(x - 1);
                         }
 
-                        // Store the result in the cache
+                        // Store the result in cache
                         if (x >= 0 && x < 1000) {
                             cache[x] = result;
                         }
@@ -38,7 +44,9 @@ function hypercake(n, k) {
 
             let i = 0;
             let sum = 0;
+            // iterate through each cut including the last cut
             while (i <= k) {
+                // add each combination together at each cut and dimension
                 sum += combination(n, i);
                 i++;
             }
@@ -46,7 +54,6 @@ function hypercake(n, k) {
     return sum;
 }
 
-// Main function
 function main() {
     // Initialize the cache with -1 to indicate that values are not calculated yet
     cache.fill(-1);
@@ -73,5 +80,5 @@ function main() {
     });
 }
 
-// Call the main function
+// Call main
 main();
