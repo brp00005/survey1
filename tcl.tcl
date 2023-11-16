@@ -1,3 +1,7 @@
+#Author: Branden Purdum
+# I understand academic integrity
+# This tcl file calculates the hypercake of user input dimensions
+
 proc hypercake {} {
 
     #get user input

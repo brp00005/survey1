@@ -1,6 +1,6 @@
 //@author Robert Coleman
 // I understand academic integrity
-// This JavaScript file calculates the hypercake of user input dimensions
+// This rust file calculates the hypercake of user input dimensions, and also runs unit tests
 
 // "-> i32" bounds the return type of the function to a 32 bit integer
 fn hypercake(n: i32, k: i32) -> i32 {

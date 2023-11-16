@@ -1,3 +1,7 @@
+#@author Branden Purdum
+# I understand academic integrity
+# This rust file calculates the hypercake of user input dimensions, nested stuff too
+
 def hypercake():
     def combinations(n, r):
         # Making the array structure
