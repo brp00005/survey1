@@ -1,4 +1,4 @@
-#Author: Branden Purdum
+#Author: Branden Purdum coauthor: Robert Coleman
 # I understand academic integrity
 # This tcl file calculates the hypercake of user input dimensions
 

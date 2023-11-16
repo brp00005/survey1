@@ -1,4 +1,4 @@
-#@author Branden Purdum
+#@author Branden Purdum, coauthor: Robert Coleman
 # I understand academic integrity
 # This rust file calculates the hypercake of user input dimensions, nested stuff too
 

@@ -1,4 +1,4 @@
-//@author Robert Coleman
+//@author Robert Coleman coauthor: Branden Purdum
 // I understand academic integrity
 // This rust file calculates the hypercake of user input dimensions, and also runs unit tests
 
