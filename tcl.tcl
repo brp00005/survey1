@@ -1,37 +1,48 @@
 proc hypercake {} {
 
-    #get user input for both things, using puts and gets 
-    
-    #print out with no return 
+    #get user input
     puts -nonewline "Enter cuts: "
-
-    #read in
+    flush stdout
     gets stdin cuts
 
-    #prompt again
     puts -nonewline "Enter dimensions: "
-    gets 
+    flush stdout
+    gets stdin dimensions
 
+    #convert to ints 
+    set cuts [expr {$cuts + 0}]
+    set dimensions [expr {$dimensions + 0}]
+
+    #counter
+    set total 0
+ 
+    #do summation
+    for {set i 0} {$i <= $cuts} {incr i} {
+        set total [expr {[combination $dimensions $i] + $total}]
+    }
+
+    #print result
+    puts -nonewline "Result for inputs: "
+    puts $total
 }
 
-#brief: recursive factorial function
-proc factorial{n}{
-    #if 0 or 1, base case
-    if{$n == 0 || $n == 1}{
+#recursion 
+proc factorial {n} {
+    if {$n == 0 || $n == 1} {
         return 1
+    } else {
+        return [expr {$n * [factorial [expr $n - 1]]}]
     }
-    else{
-        return factorial(n-1)
-    }
-
 }
 
-#brief: calculate combinations using factorial, no memoization necessary
-proc combination{n r}{
-    nFactorial = factorial(n)
-    rFactorial = factorial(r)
-    nrFactorial = factorial(n-r)
+#n! / (r! * (n-r)!) stuff
+proc combination {n r} {
+    set nFactorial [factorial $n]
+    set rFactorial [factorial $r]
+    set nrFactorial [factorial [expr {$n - $r}]]
 
-    return nFactorial / (rFactorial * nrFactorial)
-
+    return [expr {$nFactorial / ($rFactorial * $nrFactorial)}]
 }
+
+#call
+hypercake
